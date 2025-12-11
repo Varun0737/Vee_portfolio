@@ -26,11 +26,11 @@ export default function Contact() {
                     viewport={{ once: true }}
                     className="glass-card p-8 md:p-12 rounded-3xl border border-neon-blue/30 shadow-[0_0_50px_rgba(0,243,255,0.1)]"
                 >
-                    <h2 className="font-cyber text-3xl md:text-5xl font-bold text-white mb-6">
+                    <h2 className="font-cyber text-3xl md:text-5xl font-bold text-text-main mb-6">
                         READY TO <span className="text-neon-blue">START?</span>
                     </h2>
 
-                    <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                    <p className="text-xl text-text-dim mb-10 max-w-2xl mx-auto">
                         I'm currently looking for new opportunities to deploy my skills.
                         Whether you have a question or just want to say hi, my inbox is open!
                     </p>
@@ -43,22 +43,22 @@ export default function Contact() {
                             <Mail size={20} /> SEND MESSAGE
                         </a>
 
-                        <a href="tel:+18149560423" className="flex items-center gap-2 px-6 py-4 bg-white/5 border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:text-white hover:border-neon-blue/30 transition-all cursor-pointer">
+                        <a href="tel:+18149560423" className="flex items-center gap-2 px-6 py-4 bg-white/5 border border-white/10 rounded-full text-text-dim hover:bg-white/10 hover:text-text-main hover:border-neon-blue/30 transition-all cursor-pointer">
                             <Phone size={18} />
                             <span className="font-mono">+1 814-956-0423</span>
                         </a>
                     </div>
 
                     <div className="flex justify-center gap-8">
-                        <Link href="https://www.linkedin.com/in/varun-reddy-shyamala-618a51307/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors border border-white/5 hover:border-white/20">
+                        <Link href="https://www.linkedin.com/in/varun-reddy-shyamala-618a51307/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-text-dim hover:text-text-main transition-colors border border-white/5 hover:border-white/20">
                             <Linkedin size={24} />
                         </Link>
-                        <Link href="https://github.com/Varun0737" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors border border-white/5 hover:border-white/20">
+                        <Link href="https://github.com/Varun0737" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-white/5 hover:bg-white/10 text-text-dim hover:text-text-main transition-colors border border-white/5 hover:border-white/20">
                             <Github size={24} />
                         </Link>
                     </div>
 
-                    <div className="mt-12 pt-8 border-t border-white/10 text-sm text-gray-500 font-mono">
+                    <div className="mt-12 pt-8 border-t border-white/10 text-sm text-text-dim font-mono">
                         <p>Designed & Built by Varun Reddy Shyamala</p>
                         <p className="mt-2 text-xs opacity-50">© 2025 ALL RIGHTS RESERVED | SYSTEM VER. 1.0.0</p>
                     </div>

@@ -43,7 +43,7 @@ export default function Projects() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between mb-16">
                     <div className="flex items-center gap-4">
-                        <h2 className="font-cyber text-3xl md:text-4xl font-bold text-white">
+                        <h2 className="font-cyber text-3xl md:text-4xl font-bold text-text-main">
                             BOSS <span className="text-neon-blue">FIGHTS</span>
                         </h2>
                     </div>
@@ -75,17 +75,17 @@ export default function Projects() {
                                 </div>
 
                                 <div className="p-6 flex-grow flex flex-col">
-                                    <h3 className="font-cyber text-xl text-white mb-3 group-hover:text-neon-blue transition-colors">
+                                    <h3 className="font-cyber text-xl text-text-main mb-3 group-hover:text-neon-blue transition-colors">
                                         {project.title}
                                     </h3>
 
-                                    <p className="text-gray-400 text-sm mb-6 flex-grow">
+                                    <p className="text-text-dim text-sm mb-6 flex-grow">
                                         {project.description}
                                     </p>
 
                                     <div className="flex flex-wrap gap-2 mb-6">
                                         {project.tech.map((t) => (
-                                            <span key={t} className="px-2 py-1 text-xs font-mono rounded bg-white/5 border border-white/10 text-gray-300">
+                                            <span key={t} className="px-2 py-1 text-xs font-mono rounded bg-white/5 border border-white/10 text-text-dim">
                                                 {t}
                                             </span>
                                         ))}
@@ -94,13 +94,13 @@ export default function Projects() {
                                     <div className="flex items-center gap-4 mt-auto">
                                         <Link
                                             href={project.links.github}
-                                            className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
+                                            className="flex items-center gap-2 text-sm text-text-dim hover:text-text-main transition-colors"
                                         >
                                             <Github size={16} /> Code
                                         </Link>
                                         <Link
                                             href={project.links.live}
-                                            className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
+                                            className="flex items-center gap-2 text-sm text-text-dim hover:text-text-main transition-colors"
                                         >
                                             <ExternalLink size={16} /> Demo
                                         </Link>

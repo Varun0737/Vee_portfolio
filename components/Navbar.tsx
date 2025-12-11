@@ -31,7 +31,7 @@ export default function Navbar() {
                             <div className="p-2 rounded-lg bg-cyber-gray border border-white/10 group-hover:border-neon-blue transition-colors">
                                 <Gamepad2 className="w-6 h-6 text-neon-blue group-hover:text-neon-purple transition-colors" />
                             </div>
-                            <span className="font-cyber font-bold text-xl tracking-wider text-white group-hover:text-neon-blue transition-colors hidden sm:block">
+                            <span className="font-cyber font-bold text-xl tracking-wider text-text-main group-hover:text-neon-blue transition-colors hidden sm:block">
                                 VARUN<span className="text-neon-blue">.DEV</span>
                             </span>
                         </Link>
@@ -40,7 +40,7 @@ export default function Navbar() {
                             <Link
                                 href="/"
                                 onClick={playClick}
-                                className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-md text-sm text-gray-300 hover:text-white transition-all ml-4 font-mono group"
+                                className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-md text-sm text-text-dim hover:text-text-main transition-all ml-4 font-mono group"
                             >
                                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform text-neon-blue" />
                                 BACK TO MENU

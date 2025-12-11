@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import {
     Terminal, Cloud, Server, Database,
-    User, Briefcase, Code, Award, Zap, Mail
+    User, Briefcase, Code, Award, Zap, Mail, FileDown
 } from "lucide-react";
 import Link from "next/link";
 import { useSound } from "@/context/SoundContext";
@@ -22,9 +22,29 @@ export default function Hero() {
 
     return (
         <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-            {/* Background Grid & Particles */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20" />
-            <div className="absolute inset-0 bg-cyber-black/50" />
+            {/* Dark Overlay for contrast */}
+            <div className="absolute inset-0 bg-cyber-black/40 z-0 pointer-events-none" />
+
+            {/* Sci-Fi Grid Scan Background */}
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                {/* Base Grid with Parallax Drift */}
+                <div
+                    className="absolute inset-0 opacity-30 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] animate-grid-drift"
+                    style={{ willChange: "background-position" }}
+                />
+
+                {/* Vignette Overlay (keep opaque around edges) */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)] opacity-80" />
+
+                {/* Horizontal Scan Beam - BOOSTED BRIGHTNESS */}
+                <div
+                    className="absolute top-0 bottom-0 w-[500px] bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent blur-3xl animate-scan"
+                    style={{
+                        '--scan-opacity': '0.5', // Increased from 0.12
+                        willChange: "transform, opacity",
+                    } as React.CSSProperties}
+                />
+            </div>
 
             {/* Floating Icons Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -45,11 +65,11 @@ export default function Hero() {
                         SYSTEM_STATUS: ONLINE
                     </div>
 
-                    <h1 className="font-cyber text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">
+                    <h1 className="font-cyber text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 text-text-main">
                         VARUN <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple text-glow">REDDY</span>
                     </h1>
 
-                    <p className="font-mono text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+                    <p className="font-mono text-lg md:text-xl text-text-dim mb-8 max-w-2xl mx-auto">
                         Cloud & DevOps Engineer
                         <span className="text-neon-purple mx-2">|</span>
                         SELECT GAME MODE
@@ -77,7 +97,7 @@ export default function Hero() {
                                         "📡 Kubernetes | Docker | Linux",
                                         "🔐 Cybersecurity Background"
                                     ].map((stat, idx) => (
-                                        <div key={idx} className="px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm font-mono text-gray-300 shadow-sm whitespace-nowrap">
+                                        <div key={idx} className="px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm font-mono text-text-dim shadow-sm whitespace-nowrap">
                                             {stat}
                                         </div>
                                     ))}
@@ -85,6 +105,9 @@ export default function Hero() {
                             ))}
                         </motion.div>
                     </div>
+
+                    {/* Resume Download Button */}
+
 
                     {/* Game Menu Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl px-4">
@@ -106,10 +129,10 @@ export default function Hero() {
                                         <item.icon size={28} />
                                     </div>
                                     <div className="text-left">
-                                        <h3 className="font-cyber text-lg text-white group-hover:text-neon-blue transition-colors">
+                                        <h3 className="font-cyber text-lg text-text-main group-hover:text-neon-blue transition-colors">
                                             {item.name}
                                         </h3>
-                                        <p className="font-mono text-xs text-gray-400">
+                                        <p className="font-mono text-xs text-text-dim">
                                             {item.desc}
                                         </p>
                                     </div>
@@ -117,10 +140,30 @@ export default function Hero() {
                             </Link>
                         ))}
                     </div>
+
+                    {/* Resume Download Button */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.8 }}
+                        className="mt-12"
+                    >
+                        <a
+                            href="/Varun-cloud engineer-Resume.docx"
+                            download="Varun_Reddy_Shyamala_Resume.docx"
+                            onClick={playClick}
+                            onMouseEnter={playHover}
+                            className="group relative inline-flex items-center gap-3 px-8 py-3 bg-neon-blue/10 border border-neon-blue/50 rounded-full text-neon-blue font-cyber tracking-wide hover:bg-neon-blue hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,243,255,0.4)]"
+                        >
+                            <FileDown className="w-5 h-5 group-hover:animate-bounce" />
+                            DOWNLOAD RESUME
+                            <div className="absolute inset-0 rounded-full bg-neon-blue/20 blur-md -z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </a>
+                    </motion.div>
                 </motion.div>
             </div>
 
-            <div className="absolute bottom-4 text-xs font-mono text-gray-600">
+            <div className="absolute bottom-4 text-xs font-mono text-text-dim">
                 PRESS START TO BEGIN
             </div>
         </section>

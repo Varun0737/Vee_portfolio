@@ -47,7 +47,7 @@ export default function Experience() {
         <section id="experience" className="py-20 bg-cyber-black/50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center gap-4 mb-16">
-                    <h2 className="font-cyber text-3xl md:text-4xl font-bold text-white">
+                    <h2 className="font-cyber text-3xl md:text-4xl font-bold text-text-main">
                         QUEST <span className="text-neon-purple">LOG</span>
                     </h2>
                     <div className="h-0.5 flex-grow bg-white/10" />
@@ -70,23 +70,23 @@ export default function Experience() {
                             <div className="glass-card p-6 rounded-xl hover:border-neon-blue/50 transition-colors group">
                                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
                                     <div>
-                                        <h3 className="font-cyber text-xl text-white group-hover:text-neon-blue transition-colors">
+                                        <h3 className="font-cyber text-xl text-text-main group-hover:text-neon-blue transition-colors">
                                             {exp.title}
                                         </h3>
                                         <p className="text-neon-purple font-semibold">{exp.company}</p>
                                     </div>
-                                    <div className="flex flex-col items-start md:items-end text-sm text-gray-400 font-mono">
+                                    <div className="flex flex-col items-start md:items-end text-sm text-text-dim font-mono">
                                         <span className="flex items-center gap-1"><Calendar size={14} /> {exp.date}</span>
                                         <span className="flex items-center gap-1"><MapPin size={14} /> {exp.location}</span>
                                     </div>
                                 </div>
 
-                                <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                                <p className="text-text-dim leading-relaxed text-sm md:text-base">
                                     {exp.description}
                                 </p>
 
                                 <div className="mt-4 flex gap-2">
-                                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-gray-400 font-mono flex items-center gap-1">
+                                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-text-dim font-mono flex items-center gap-1">
                                         <CheckCircle size={12} className="text-neon-green" /> COMPLETED
                                     </span>
                                     <span className="px-3 py-1 rounded-full bg-neon-purple/10 border border-neon-purple/20 text-xs text-neon-purple font-mono">

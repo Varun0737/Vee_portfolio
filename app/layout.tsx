@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 import { SoundProvider } from "@/context/SoundContext";
+
 import Navbar from "@/components/Navbar";
 
 // ... imports
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${orbitron.variable} ${inter.variable} antialiased bg-cyber-black text-white overflow-x-hidden`}
+        className={`${orbitron.variable} ${inter.variable} antialiased bg-cyber-black text-text-main overflow-x-hidden`}
       >
         <SoundProvider>
           <Navbar />

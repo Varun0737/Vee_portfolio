@@ -45,10 +45,10 @@ export default function Skills() {
         <section id="skills" className="py-20 bg-cyber-black/50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="font-cyber text-3xl md:text-4xl font-bold text-white mb-4">
+                    <h2 className="font-cyber text-3xl md:text-4xl font-bold text-text-main mb-4">
                         SKILL <span className="text-neon-purple">TREE</span>
                     </h2>
-                    <p className="text-gray-400 font-mono">Current Build & Stats</p>
+                    <p className="text-text-dim font-mono">Current Build & Stats</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -61,7 +61,7 @@ export default function Skills() {
                             transition={{ delay: catIndex * 0.1 }}
                             className="glass-card p-6 rounded-xl border border-white/5"
                         >
-                            <h3 className="font-cyber text-xl text-white mb-6 border-b border-white/10 pb-2">
+                            <h3 className="font-cyber text-xl text-text-main mb-6 border-b border-white/10 pb-2">
                                 {category.title}
                             </h3>
 
@@ -69,7 +69,7 @@ export default function Skills() {
                                 {category.skills.map((skill, index) => (
                                     <div key={skill.name}>
                                         <div className="flex justify-between text-sm mb-2 font-mono">
-                                            <span className="text-gray-300">{skill.name}</span>
+                                            <span className="text-text-dim">{skill.name}</span>
                                             <span className="text-neon-blue">Lvl {skill.level}</span>
                                         </div>
                                         <div className="h-2 bg-white/5 rounded-full overflow-hidden">

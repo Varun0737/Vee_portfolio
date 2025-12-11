@@ -12,7 +12,7 @@ export default function Achievements() {
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-10 pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <h2 className="font-cyber text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+                <h2 className="font-cyber text-3xl md:text-4xl font-bold text-text-main mb-12 text-center">
                     unlocked <span className="text-neon-green">ACHIEVEMENTS</span>
                 </h2>
 
@@ -44,10 +44,10 @@ export default function Achievements() {
                                     <img src="/gannon-banner.png" alt="GU Logo" className="w-full h-full object-cover" />
                                 </div>
                                 <div>
-                                    <h3 className="font-cyber text-2xl text-white mb-2 shadow-black drop-shadow-lg">Master's Degree</h3>
-                                    <p className="text-xl text-gray-200 mb-1 font-semibold shadow-black drop-shadow-md">Information Assurance & Cybersecurity</p>
+                                    <h3 className="font-cyber text-2xl text-text-main mb-2 shadow-black drop-shadow-lg">Master's Degree</h3>
+                                    <p className="text-xl text-text-dim mb-1 font-semibold shadow-black drop-shadow-md">Information Assurance & Cybersecurity</p>
                                     <p className="text-neon-purple font-mono font-bold">Gannon University</p>
-                                    <p className="text-sm text-gray-300 mt-2 font-mono bg-black/40 inline-block px-2 py-1 rounded">Jan 2024 – Dec 2025</p>
+                                    <p className="text-sm text-text-dim mt-2 font-mono bg-black/40 inline-block px-2 py-1 rounded">Jan 2024 – Dec 2025</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -112,8 +112,8 @@ function CertificationCard({ title, issuer, color, delay, href, logo }: { title:
                     )}
                 </div>
                 <div>
-                    <h4 className="text-white font-medium">{title}</h4>
-                    <p className="text-sm text-gray-400 font-mono">{issuer}</p>
+                    <h4 className="text-text-main font-medium">{title}</h4>
+                    <p className="text-sm text-text-dim font-mono">{issuer}</p>
                 </div>
             </motion.div>
         </Link>
