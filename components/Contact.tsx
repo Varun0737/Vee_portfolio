@@ -43,10 +43,10 @@ export default function Contact() {
                             <Mail size={20} /> SEND MESSAGE
                         </a>
 
-                        <div className="flex items-center gap-2 px-6 py-4 bg-white/5 border border-white/10 rounded-full text-gray-300">
+                        <a href="tel:+18149560423" className="flex items-center gap-2 px-6 py-4 bg-white/5 border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:text-white hover:border-neon-blue/30 transition-all cursor-pointer">
                             <Phone size={18} />
                             <span className="font-mono">+1 814-956-0423</span>
-                        </div>
+                        </a>
                     </div>
 
                     <div className="flex justify-center gap-8">

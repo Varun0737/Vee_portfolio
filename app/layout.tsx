@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Portfolio of Varun Reddy Shyamala - Cloud & DevOps Engineer specializing in AWS, Linux, and Automation.",
 };
 
+import { SoundProvider } from "@/context/SoundContext";
 import Navbar from "@/components/Navbar";
 
 // ... imports
@@ -31,8 +32,10 @@ export default function RootLayout({
       <body
         className={`${orbitron.variable} ${inter.variable} antialiased bg-cyber-black text-white overflow-x-hidden`}
       >
-        <Navbar />
-        {children}
+        <SoundProvider>
+          <Navbar />
+          {children}
+        </SoundProvider>
       </body>
     </html>
   );

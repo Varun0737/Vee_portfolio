@@ -6,6 +6,7 @@ import {
     User, Briefcase, Code, Award, Zap, Mail
 } from "lucide-react";
 import Link from "next/link";
+import { useSound } from "@/context/SoundContext";
 
 const menuItems = [
     { name: "Character Stats", href: "/about", icon: User, color: "text-blue-400", desc: "About Me" },
@@ -17,6 +18,8 @@ const menuItems = [
 ];
 
 export default function Hero() {
+    const { playClick, playHover } = useSound();
+
     return (
         <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
             {/* Background Grid & Particles */}
@@ -46,16 +49,53 @@ export default function Hero() {
                         VARUN <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple text-glow">REDDY</span>
                     </h1>
 
-                    <p className="font-mono text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+                    <p className="font-mono text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
                         Cloud & DevOps Engineer
                         <span className="text-neon-purple mx-2">|</span>
                         SELECT GAME MODE
                     </p>
 
+                    {/* Quick Stats Strip - Infinite Marquee */}
+                    <div className="w-full max-w-4xl mb-12 overflow-hidden mask-linear-fade relative">
+                        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-cyber-black to-transparent z-10" />
+                        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-cyber-black to-transparent z-10" />
+
+                        <motion.div
+                            className="flex gap-6 w-max"
+                            animate={{ x: ["0%", "-50%"] }}
+                            transition={{
+                                repeat: Infinity,
+                                ease: "linear",
+                                duration: 20
+                            }}
+                        >
+                            {[...Array(2)].map((_, i) => (
+                                <div key={i} className="flex gap-6">
+                                    {[
+                                        "⭐ 4+ Years IT & Cloud Experience",
+                                        "☁️ AWS, Terraform, CI/CD Pipelines",
+                                        "📡 Kubernetes | Docker | Linux",
+                                        "🔐 Cybersecurity Background"
+                                    ].map((stat, idx) => (
+                                        <div key={idx} className="px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm font-mono text-gray-300 shadow-sm whitespace-nowrap">
+                                            {stat}
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </motion.div>
+                    </div>
+
                     {/* Game Menu Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl px-4">
                         {menuItems.map((item, index) => (
-                            <Link key={item.name} href={item.href} className="block group">
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className="block group"
+                                onClick={playClick}
+                                onMouseEnter={playHover}
+                            >
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}

@@ -33,7 +33,7 @@ const projects = [
         tech: ["Next.js", "Tailwind", "Framer Motion", "TypeScript"],
         icon: Layout,
         color: "from-neon-purple to-pink-600",
-        links: { github: "#", live: "#" }
+        links: { github: "https://github.com/Varun0737/Vee_portfolio", live: "#" }
     }
 ];
 
