@@ -17,13 +17,13 @@ const projects = [
     },
     {
         id: 2,
-        title: "DevOps Homelab Cluster",
+        title: "Linux Playground for Students",
         category: "SIDE QUEST",
-        description: "Kubernetes playground for testing GitOps flows. Integrated ArgoCD, Prometheus, and Grafana for full observability.",
-        tech: ["K8s", "Docker", "Ansible", "Linux", "Grafana"],
+        description: "A hands-on Linux environment for GannonHacks.club members. Provides a safe, isolated playground for students to learn command-line skills and system administration.",
+        tech: ["Linux", "Web Terminal", "Docker", "Education"],
         icon: Server,
         color: "from-emerald-500 to-cyan-500",
-        links: { github: "#", live: "#" }
+        links: { github: "https://github.com/Varun0737/Gannonhacks.club", live: "https://Gannonhacks.club" }
     },
     {
         id: 3,
