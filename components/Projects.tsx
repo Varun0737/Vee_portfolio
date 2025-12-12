@@ -62,7 +62,7 @@ export default function Projects() {
                             transition={{ delay: index * 0.1 }}
                             className="group relative"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl rounded-xl -z-10" />
+                            <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg will-change-opacity rounded-xl -z-10" />
 
                             <div className="glass-card h-full rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col">
                                 {/* Banner */}

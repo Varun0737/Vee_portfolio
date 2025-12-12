@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useSound } from "@/context/SoundContext";
+import { useLowMotion } from "@/hooks/useLowMotion";
 
 const menuItems = [
     { name: "Character Stats", href: "/about", icon: User, color: "text-blue-400", desc: "About Me" },
@@ -19,6 +20,7 @@ const menuItems = [
 
 export default function Hero() {
     const { playClick, playHover } = useSound();
+    const lowMotion = useLowMotion();
 
     return (
         <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -27,31 +29,33 @@ export default function Hero() {
 
             {/* Sci-Fi Grid Scan Background */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                {/* Base Grid with Parallax Drift */}
+                {/* Base Grid with Parallax Drift - Disabled on low motion */}
                 <div
-                    className="absolute inset-0 opacity-30 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] animate-grid-drift"
-                    style={{ willChange: "background-position" }}
+                    className={`absolute inset-0 opacity-30 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] ${!lowMotion && "animate-grid-drift"}`}
+                    style={!lowMotion ? { willChange: "background-position" } : {}}
                 />
 
                 {/* Vignette Overlay (keep opaque around edges) */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)] opacity-80" />
 
-                {/* Horizontal Scan Beam - BOOSTED BRIGHTNESS */}
-                <div
-                    className="absolute top-0 bottom-0 w-[500px] bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent blur-3xl animate-scan"
-                    style={{
-                        '--scan-opacity': '0.5', // Increased from 0.12
-                        willChange: "transform, opacity",
-                    } as React.CSSProperties}
-                />
+                {/* Horizontal Scan Beam - Hidden on low motion */}
+                {!lowMotion && (
+                    <div
+                        className="absolute top-0 bottom-0 w-[500px] bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent blur-3xl animate-scan"
+                        style={{
+                            '--scan-opacity': '0.5',
+                            willChange: "transform, opacity",
+                        } as React.CSSProperties}
+                    />
+                )}
             </div>
 
-            {/* Floating Icons Background */}
+            {/* Floating Icons Background - Static on low motion */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <FloatingIcon icon={Cloud} delay={0} x={10} y={20} />
-                <FloatingIcon icon={Server} delay={2} x={80} y={15} />
-                <FloatingIcon icon={Terminal} delay={4} x={20} y={80} />
-                <FloatingIcon icon={Database} delay={6} x={85} y={70} />
+                <FloatingIcon icon={Cloud} delay={0} x={10} y={20} lowMotion={lowMotion} />
+                <FloatingIcon icon={Server} delay={2} x={80} y={15} lowMotion={lowMotion} />
+                <FloatingIcon icon={Terminal} delay={4} x={20} y={80} lowMotion={lowMotion} />
+                <FloatingIcon icon={Database} delay={6} x={85} y={70} lowMotion={lowMotion} />
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
@@ -75,19 +79,13 @@ export default function Hero() {
                         SELECT GAME MODE
                     </p>
 
-                    {/* Quick Stats Strip - Infinite Marquee */}
+                    {/* Quick Stats Strip - Static on low motion */}
                     <div className="w-full max-w-4xl mb-12 overflow-hidden mask-linear-fade relative">
                         <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-cyber-black to-transparent z-10" />
                         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-cyber-black to-transparent z-10" />
 
-                        <motion.div
-                            className="flex gap-6 w-max"
-                            animate={{ x: ["0%", "-50%"] }}
-                            transition={{
-                                repeat: Infinity,
-                                ease: "linear",
-                                duration: 20
-                            }}
+                        <div
+                            className={`flex gap-6 w-max ${!lowMotion ? "animate-marquee" : "flex-wrap justify-center overflow-auto"}`}
                         >
                             {[...Array(2)].map((_, i) => (
                                 <div key={i} className="flex gap-6">
@@ -103,7 +101,7 @@ export default function Hero() {
                                     ))}
                                 </div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
 
                     {/* Resume Download Button */}
@@ -170,23 +168,18 @@ export default function Hero() {
     );
 }
 
-function FloatingIcon({ icon: Icon, delay, x, y }: { icon: any, delay: number, x: number, y: number }) {
+function FloatingIcon({ icon: Icon, delay, x, y, lowMotion }: { icon: any, delay: number, x: number, y: number, lowMotion: boolean }) {
     return (
-        <motion.div
-            className="absolute text-white/5"
-            style={{ left: `${x}%`, top: `${y}%` }}
-            animate={{
-                y: [0, -20, 0],
-                opacity: [0.05, 0.1, 0.05]
-            }}
-            transition={{
-                duration: 5,
-                delay: delay,
-                repeat: Infinity,
-                ease: "easeInOut"
+        <div
+            className={`absolute text-white/5 ${!lowMotion && "animate-float"}`}
+            style={{
+                left: `${x}%`,
+                top: `${y}%`,
+                animationDelay: `${delay}s`,
+                opacity: lowMotion ? 0.05 : undefined // Static opacity if lowMotion
             }}
         >
             <Icon size={64} />
-        </motion.div>
+        </div>
     );
 }

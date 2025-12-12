@@ -54,22 +54,24 @@ body {
 }
 
 /* Sci-Fi Scan Effect */
+/* Sci-Fi Scan Effect - GPU Optimized */
 @keyframes scan-beam {
   0% {
-    left: -20%;
+    transform: translateX(-100%);
     opacity: 0;
   }
 
   10% {
-    opacity: var(--scan-opacity, 0.1);
+    opacity: var(--scan-opacity, 0.5);
   }
 
   90% {
-    opacity: var(--scan-opacity, 0.1);
+    opacity: var(--scan-opacity, 0.5);
   }
 
   100% {
-    left: 120%;
+    transform: translateX(500%);
+    /* Move far off screen */
     opacity: 0;
   }
 }
@@ -84,10 +86,48 @@ body {
   }
 }
 
+/* New: Infinite Marquee (CSS only) */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* New: Floating Animation (CSS only) */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.05;
+  }
+
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.1;
+  }
+}
+
 .animate-scan {
-  animation: scan-beam 10s linear infinite;
+  animation: scan-beam 8s linear infinite;
+  will-change: transform, opacity;
 }
 
 .animate-grid-drift {
   animation: grid-drift 60s linear infinite;
+  will-change: background-position;
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+  will-change: transform, opacity;
 }
