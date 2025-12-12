@@ -161,9 +161,7 @@ export default function Hero() {
                 </motion.div>
             </div>
 
-            <div className="absolute bottom-4 text-xs font-mono text-text-dim">
-                PRESS START TO BEGIN
-            </div>
+
         </section>
     );
 }

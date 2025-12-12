@@ -34,7 +34,7 @@ export default function About() {
                                 </div>
                                 <div className="flex justify-between items-center text-text-dim">
                                     <span className="flex items-center gap-2"><Code size={16} /> Class</span>
-                                    <span className="text-text-main">Technomancer</span>
+                                    <span className="text-text-main">Master</span>
                                 </div>
                                 <div className="flex justify-between items-center text-text-dim">
                                     <span className="flex items-center gap-2"><Coffee size={16} /> Fuel</span>
@@ -70,11 +70,11 @@ export default function About() {
 
                         <div className="space-y-6 text-text-dim text-lg leading-relaxed">
                             <p>
-                                As an international student and aspiring <span className="text-text-main font-semibold">Cloud Architect</span>, I approach infrastructure like a well-balanced RPG—optimizing stats, managing resources, and ensuring the party (user base) stays alive.
+                                As an international student and aspiring <span className="text-text-main font-semibold">Cloud Architect</span>, I approach infrastructure like a well-balanced RPG, optimizing stats, managing resources, and ensuring the party (user base) stays alive.
                             </p>
 
                             <p>
-                                My journey involves hands-on quests in <span className="text-text-main">AWS architecture</span>, <span className="text-text-main">Linux administration</span>, and CI/CD pipeline construction. I thrive on solving complex server puzzles and automating repetitive grind, so I can focus on the boss fights (innovation).
+                                My journey involves hands-on quests in <span className="text-text-main">AWS architecture</span>, <span className="text-text-main">Linux administration</span>, <span className="text-text-main">SQL</span>, and CI/CD pipeline construction. I thrive on solving complex server puzzles and automating repetitive grind, so I can focus on the boss fights (innovation).
                             </p>
 
                             <p>
