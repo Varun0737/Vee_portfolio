@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Varun Reddy Shyamala | Cloud & DevOps Engineer",
+  title: "Varun Resume Website",
   description: "Portfolio of Varun Reddy Shyamala - Cloud & DevOps Engineer specializing in AWS, Linux, and Automation.",
 };
 
