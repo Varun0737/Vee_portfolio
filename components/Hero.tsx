@@ -1,22 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-    Terminal, Cloud, Server, Database,
-    User, Briefcase, Code, Award, Zap, Mail, FileDown
-} from "lucide-react";
+import { Cloud, Server, Terminal, FileDown, Database } from "lucide-react";
 import Link from "next/link";
 import { useSound } from "@/context/SoundContext";
 import { useLowMotion } from "@/hooks/useLowMotion";
+import LevelMap from "./LevelMap";
 
-const menuItems = [
-    { name: "Character Stats", href: "/about", icon: User, color: "text-blue-400", desc: "About Me" },
-    { name: "Quest Log", href: "/experience", icon: Briefcase, color: "text-purple-400", desc: "Experience" },
-    { name: "Boss Fights", href: "/projects", icon: Code, color: "text-green-400", desc: "Projects" },
-    { name: "Skill Tree", href: "/skills", icon: Zap, color: "text-yellow-400", desc: "Technical Skills" },
-    { name: "Achievements", href: "/achievements", icon: Award, color: "text-orange-400", desc: "Certs & Education" },
-    { name: "Comm Link", href: "/contact", icon: Mail, color: "text-cyan-400", desc: "Contact System" }
-];
+
 
 export default function Hero() {
     const { playClick, playHover } = useSound();
@@ -107,36 +98,9 @@ export default function Hero() {
                     {/* Resume Download Button */}
 
 
-                    {/* Game Menu Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl px-4">
-                        {menuItems.map((item, index) => (
-                            <Link
-                                key={item.name}
-                                href={item.href}
-                                className="block group"
-                                onClick={playClick}
-                                onMouseEnter={playHover}
-                            >
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="glass-card hover:bg-white/10 border border-white/10 hover:border-neon-blue/50 p-6 rounded-xl flex items-center gap-4 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,243,255,0.2)]"
-                                >
-                                    <div className={`p-3 rounded-lg bg-black/40 ${item.color}`}>
-                                        <item.icon size={28} />
-                                    </div>
-                                    <div className="text-left">
-                                        <h3 className="font-cyber text-lg text-text-main group-hover:text-neon-blue transition-colors">
-                                            {item.name}
-                                        </h3>
-                                        <p className="font-mono text-xs text-text-dim">
-                                            {item.desc}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            </Link>
-                        ))}
+                    {/* Game Map Navigation */}
+                    <div className="w-full flex justify-center">
+                        <LevelMap />
                     </div>
 
                     {/* Resume Download Button */}

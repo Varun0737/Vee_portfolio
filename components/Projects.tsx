@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Shield, Server, Layout } from "lucide-react";
+import { Github, ExternalLink, Shield, Server, Layout, Bot } from "lucide-react";
 import Link from "next/link";
 
 const projects = [
@@ -34,6 +34,16 @@ const projects = [
         icon: Layout,
         color: "from-neon-purple to-pink-600",
         links: { github: "https://github.com/Varun0737/Vee_portfolio", live: "https://varunreddy.com" }
+    },
+    {
+        id: 4,
+        title: "Cyber Chatbot (Clover)",
+        category: "SIDE QUEST",
+        description: "An intelligent cybersecurity assistant designed to help with threat analysis and security queries.",
+        tech: ["React", "AI", "Node.js", "Cybersecurity"],
+        icon: Bot,
+        color: "from-green-400 to-emerald-600",
+        links: { github: "https://github.com/Varun0737/cyberawarnesschatbot", live: "#" }
     }
 ];
 
