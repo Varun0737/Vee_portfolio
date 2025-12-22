@@ -11,7 +11,7 @@ const experiences = [
         date: "Aug 2025 – Dec 2025",
         location: "Erie, PA",
         description: "Mentored 40+ students in Linux, virtualization, and network security. Designed 3 critical network labs improving course comprehension by 25%.",
-        type: "Main Quest"
+        type: "Education"
     },
     {
         id: 2,
@@ -20,7 +20,7 @@ const experiences = [
         date: "Mar 2024 – May 2025",
         location: "Erie, PA",
         description: "Diagnosed connectivity issues, reducing downtime by 20%. Managed patch management and endpoint hardening for HIPAA compliance.",
-        type: "Side Quest"
+        type: "IT Operations"
     },
     {
         id: 3,
@@ -44,16 +44,16 @@ const experiences = [
 
 export default function Experience() {
     return (
-        <section id="experience" className="py-20 bg-cyber-black/50">
+        <section id="experience" className="py-24 bg-white/[0.02]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center gap-4 mb-16">
-                    <h2 className="font-cyber text-3xl md:text-4xl font-bold text-text-main">
-                        QUEST <span className="text-neon-purple">LOG</span>
+                <div className="flex items-center gap-4 mb-20">
+                    <h2 className="font-cyber text-3xl md:text-5xl font-bold text-text-main">
+                        EXPERIENCE
                     </h2>
-                    <div className="h-0.5 flex-grow bg-white/10" />
+                    <div className="h-px flex-grow bg-white/10" />
                 </div>
 
-                <div className="relative border-l-2 border-white/10 ml-4 md:ml-8 space-y-12">
+                <div className="relative border-l border-white/10 ml-4 md:ml-8 space-y-16">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={exp.id}
@@ -61,35 +61,35 @@ export default function Experience() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="relative pl-8 md:pl-12"
+                            className="relative pl-12 md:pl-16"
                         >
                             {/* Connector Node */}
-                            <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-cyber-black border-2 border-neon-blue shadow-[0_0_10px_rgba(0,243,255,0.5)]" />
+                            <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-neon-blue shadow-[0_0_15px_rgba(0,210,255,0.6)]" />
 
                             {/* Card */}
-                            <div className="glass-card p-6 rounded-xl hover:border-neon-blue/50 transition-colors group">
-                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 gap-2">
+                            <div className="glass-card p-8 rounded-2xl hover:border-neon-blue/30 transition-all duration-500 group">
+                                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6 gap-4">
                                     <div>
-                                        <h3 className="font-cyber text-xl text-text-main group-hover:text-neon-blue transition-colors">
+                                        <h3 className="font-cyber text-2xl text-text-main group-hover:text-neon-blue transition-colors mb-1">
                                             {exp.title}
                                         </h3>
-                                        <p className="text-neon-purple font-semibold">{exp.company}</p>
+                                        <p className="text-neon-purple font-mono text-sm tracking-wide uppercase">{exp.company}</p>
                                     </div>
-                                    <div className="flex flex-col items-start md:items-end text-sm text-text-dim font-mono">
-                                        <span className="flex items-center gap-1"><Calendar size={14} /> {exp.date}</span>
-                                        <span className="flex items-center gap-1"><MapPin size={14} /> {exp.location}</span>
+                                    <div className="flex flex-col items-start md:items-end text-sm text-text-dim font-mono gap-1">
+                                        <span className="flex items-center gap-2"><Calendar size={14} className="text-neon-blue" /> {exp.date}</span>
+                                        <span className="flex items-center gap-2"><MapPin size={14} className="text-neon-blue" /> {exp.location}</span>
                                     </div>
                                 </div>
 
-                                <p className="text-text-dim leading-relaxed text-sm md:text-base">
+                                <p className="text-text-dim leading-relaxed text-base md:text-lg mb-8 max-w-4xl">
                                     {exp.description}
                                 </p>
 
-                                <div className="mt-4 flex gap-2">
-                                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-text-dim font-mono flex items-center gap-1">
-                                        <CheckCircle size={12} className="text-neon-green" /> COMPLETED
+                                <div className="flex flex-wrap gap-3">
+                                    <span className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-text-dim font-mono flex items-center gap-2">
+                                        <CheckCircle size={14} className="text-neon-green" /> PROFESSIONAL
                                     </span>
-                                    <span className="px-3 py-1 rounded-full bg-neon-purple/10 border border-neon-purple/20 text-xs text-neon-purple font-mono">
+                                    <span className="px-4 py-1.5 rounded-full bg-neon-purple/5 border border-neon-purple/20 text-xs text-neon-purple font-mono uppercase tracking-wider">
                                         {exp.type}
                                     </span>
                                 </div>

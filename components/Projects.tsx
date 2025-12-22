@@ -8,7 +8,7 @@ const projects = [
     {
         id: 1,
         title: "LLM Threat Intel Dashboard",
-        category: "BOSS FIGHT",
+        category: "Security",
         description: "Cloud-native threat intelligence platform processing 50K+ daily records using React, Node.js, and AI APIs. Achieved 99.9% uptime on AWS.",
         tech: ["React", "AWS", "Node.js", "MongoDB", "Terraform"],
         icon: Shield,
@@ -18,7 +18,7 @@ const projects = [
     {
         id: 2,
         title: "Linux Playground for Students",
-        category: "SIDE QUEST",
+        category: "Cloud",
         description: "A hands-on Linux environment for GannonHacks.club members. Provides a safe, isolated playground for students to learn command-line skills and system administration.",
         tech: ["Linux", "Web Terminal", "Docker", "Education"],
         icon: Server,
@@ -28,7 +28,7 @@ const projects = [
     {
         id: 3,
         title: "Portfolio Website",
-        category: "SIDE QUEST",
+        category: "Frontend",
         description: "The site you are looking at! Built with Next.js 14, Tailwind, and Framer Motion to showcase my cloud journey.",
         tech: ["Next.js", "Tailwind", "Framer Motion", "TypeScript"],
         icon: Layout,
@@ -38,7 +38,7 @@ const projects = [
     {
         id: 4,
         title: "Cyber Chatbot (Clover)",
-        category: "SIDE QUEST",
+        category: "AI",
         description: "An intelligent cybersecurity assistant designed to help with threat analysis and security queries.",
         tech: ["React", "AI", "Node.js", "Cybersecurity"],
         icon: Bot,
@@ -49,20 +49,16 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-20">
+        <section id="projects" className="py-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between mb-16">
-                    <div className="flex items-center gap-4">
-                        <h2 className="font-cyber text-3xl md:text-4xl font-bold text-text-main">
-                            BOSS <span className="text-neon-blue">FIGHTS</span>
-                        </h2>
-                    </div>
-                    <div className="hidden md:block text-neon-blue font-mono text-sm border border-neon-blue px-4 py-2 rounded-lg bg-neon-blue/10">
-                        Current Score: 3/3 CLEARED
-                    </div>
+                <div className="flex items-center gap-4 mb-20">
+                    <h2 className="font-cyber text-3xl md:text-5xl font-bold text-text-main">
+                        FEATURED <span className="text-neon-blue">PROJECTS</span>
+                    </h2>
+                    <div className="h-px flex-grow bg-white/10" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -72,47 +68,45 @@ export default function Projects() {
                             transition={{ delay: index * 0.1 }}
                             className="group relative"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg will-change-opacity rounded-xl -z-10" />
-
-                            <div className="glass-card h-full rounded-xl overflow-hidden border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col">
+                            <div className="glass-card h-full rounded-2xl overflow-hidden border border-white/10 hover:border-neon-blue/30 transition-all duration-500 flex flex-col hover:shadow-[0_0_30px_rgba(0,210,255,0.1)]">
                                 {/* Banner */}
-                                <div className={`h-32 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
+                                <div className={`h-40 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
                                     <div className="absolute inset-0 bg-black/20" />
-                                    <project.icon size={48} className="text-white relative z-10 opacity-80 group-hover:scale-110 transition-transform duration-300" />
-                                    <div className="absolute bottom-2 right-2 px-2 py-1 bg-black/50 backdrop-blur rounded text-xs font-mono text-white border border-white/20">
-                                        {project.category}
+                                    <project.icon size={56} className="text-white relative z-10 opacity-90 group-hover:scale-110 transition-transform duration-500" />
+                                    <div className="absolute bottom-4 right-4 px-3 py-1 bg-black/60 backdrop-blur-md rounded-full text-[10px] font-mono tracking-widest text-white border border-white/10">
+                                        {project.category.toUpperCase()}
                                     </div>
                                 </div>
 
-                                <div className="p-6 flex-grow flex flex-col">
-                                    <h3 className="font-cyber text-xl text-text-main mb-3 group-hover:text-neon-blue transition-colors">
+                                <div className="p-8 flex-grow flex flex-col">
+                                    <h3 className="font-cyber text-2xl text-text-main mb-4 transition-colors">
                                         {project.title}
                                     </h3>
 
-                                    <p className="text-text-dim text-sm mb-6 flex-grow">
+                                    <p className="text-text-dim text-base mb-8 flex-grow leading-relaxed">
                                         {project.description}
                                     </p>
 
-                                    <div className="flex flex-wrap gap-2 mb-6">
+                                    <div className="flex flex-wrap gap-2 mb-8">
                                         {project.tech.map((t) => (
-                                            <span key={t} className="px-2 py-1 text-xs font-mono rounded bg-white/5 border border-white/10 text-text-dim">
+                                            <span key={t} className="px-3 py-1 text-xs font-mono rounded-full bg-white/5 border border-white/10 text-text-dim">
                                                 {t}
                                             </span>
                                         ))}
                                     </div>
 
-                                    <div className="flex items-center gap-4 mt-auto">
+                                    <div className="flex items-center gap-6 mt-auto">
                                         <Link
                                             href={project.links.github}
-                                            className="flex items-center gap-2 text-sm text-text-dim hover:text-text-main transition-colors"
+                                            className="flex items-center gap-2 text-sm text-text-dim hover:text-neon-blue transition-colors font-mono"
                                         >
-                                            <Github size={16} /> Code
+                                            <Github size={18} /> GITHUB
                                         </Link>
                                         <Link
                                             href={project.links.live}
-                                            className="flex items-center gap-2 text-sm text-text-dim hover:text-text-main transition-colors"
+                                            className="flex items-center gap-2 text-sm text-text-dim hover:text-neon-blue transition-colors font-mono"
                                         >
-                                            <ExternalLink size={16} /> Demo
+                                            <ExternalLink size={18} /> DEMO
                                         </Link>
                                     </div>
                                 </div>

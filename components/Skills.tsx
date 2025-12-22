@@ -31,7 +31,7 @@ const skillCategories = [
         ]
     },
     {
-        title: "Security",
+        title: "Security & Compliance",
         skills: [
             { name: "IAM/Okta", level: 85, color: "bg-indigo-500" },
             { name: "Network Security", level: 80, color: "bg-red-600" },
@@ -42,43 +42,43 @@ const skillCategories = [
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-20 bg-cyber-black/50 overflow-hidden">
+        <section id="skills" className="py-24 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="font-cyber text-3xl md:text-4xl font-bold text-text-main mb-4">
-                        SKILL <span className="text-neon-purple">TREE</span>
+                <div className="text-center mb-24">
+                    <h2 className="font-cyber text-3xl md:text-5xl font-bold text-text-main mb-6">
+                        SKILLS
                     </h2>
-                    <p className="text-text-dim font-mono">Current Build & Stats</p>
+                    <p className="text-text-dim font-mono tracking-widest text-sm uppercase">Technologies & Expertise</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     {skillCategories.map((category, catIndex) => (
                         <motion.div
                             key={category.title}
-                            initial={{ opacity: 0, x: catIndex % 2 === 0 ? -20 : 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: catIndex * 0.1 }}
-                            className="glass-card p-6 rounded-xl border border-white/5"
+                            className="glass-card p-10 rounded-2xl border border-white/5"
                         >
-                            <h3 className="font-cyber text-xl text-text-main mb-6 border-b border-white/10 pb-2">
+                            <h3 className="font-cyber text-2xl text-text-main mb-10 border-b border-white/10 pb-4 tracking-tight">
                                 {category.title}
                             </h3>
 
-                            <div className="space-y-6">
+                            <div className="space-y-8">
                                 {category.skills.map((skill, index) => (
                                     <div key={skill.name}>
-                                        <div className="flex justify-between text-sm mb-2 font-mono">
+                                        <div className="flex justify-between text-xs mb-3 font-mono tracking-wider uppercase">
                                             <span className="text-text-dim">{skill.name}</span>
-                                            <span className="text-neon-blue">Lvl {skill.level}</span>
+                                            <span className="text-neon-blue">{skill.level}%</span>
                                         </div>
-                                        <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                                        <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
                                             <motion.div
                                                 initial={{ width: 0 }}
                                                 whileInView={{ width: `${skill.level}%` }}
                                                 viewport={{ once: true }}
-                                                transition={{ duration: 1, delay: 0.2 + (index * 0.1) }}
-                                                className={`h-full ${skill.color} shadow-[0_0_10px_rgba(255,255,255,0.3)]`}
+                                                transition={{ duration: 1.2, delay: 0.2 + (index * 0.1), ease: "easeOut" }}
+                                                className={`h-full ${skill.color} shadow-[0_0_12px_rgba(255,255,255,0.2)]`}
                                             />
                                         </div>
                                     </div>

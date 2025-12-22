@@ -1,47 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cloud, Server, Terminal, FileDown, Database } from "lucide-react";
-import Link from "next/link";
+import { Cloud, Server, Terminal, FileDown, Database, ChevronDown } from "lucide-react";
 import { useSound } from "@/context/SoundContext";
 import { useLowMotion } from "@/hooks/useLowMotion";
-import LevelMap from "./LevelMap";
-
-
 
 export default function Hero() {
     const { playClick, playHover } = useSound();
     const lowMotion = useLowMotion();
 
     return (
-        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
             {/* Dark Overlay for contrast */}
             <div className="absolute inset-0 bg-cyber-black/40 z-0 pointer-events-none" />
 
-            {/* Sci-Fi Grid Scan Background */}
+            {/* Background Grid */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                {/* Base Grid with Parallax Drift - Disabled on low motion */}
                 <div
-                    className={`absolute inset-0 opacity-30 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] ${!lowMotion && "animate-grid-drift"}`}
-                    style={!lowMotion ? { willChange: "background-position" } : {}}
+                    className={`absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] ${!lowMotion && "animate-grid-drift"}`}
                 />
-
-                {/* Vignette Overlay (keep opaque around edges) */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#000_100%)] opacity-80" />
-
-                {/* Horizontal Scan Beam - Hidden on low motion */}
-                {!lowMotion && (
-                    <div
-                        className="absolute top-0 bottom-0 w-[500px] bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent blur-3xl animate-scan"
-                        style={{
-                            '--scan-opacity': '0.5',
-                            willChange: "transform, opacity",
-                        } as React.CSSProperties}
-                    />
-                )}
             </div>
 
-            {/* Floating Icons Background - Static on low motion */}
+            {/* Floating Icons Background */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <FloatingIcon icon={Cloud} delay={0} x={10} y={20} lowMotion={lowMotion} />
                 <FloatingIcon icon={Server} delay={2} x={80} y={15} lowMotion={lowMotion} />
@@ -49,83 +30,65 @@ export default function Hero() {
                 <FloatingIcon icon={Database} delay={6} x={85} y={70} lowMotion={lowMotion} />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full mt-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.8 }}
                     className="flex flex-col items-center"
                 >
-                    <div className="inline-block mb-4 px-3 py-1 rounded-full bg-white/5 border border-neon-blue/20 text-neon-blue text-sm font-mono tracking-widest">
-                        SYSTEM_STATUS: ONLINE
+                    <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-text-dim text-xs font-mono tracking-widest uppercase">
+                        Available for new opportunities
                     </div>
 
-                    <h1 className="font-cyber text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 text-text-main">
+                    <h1 className="font-cyber text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 text-text-main">
                         VARUN <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple text-glow">REDDY</span>
                     </h1>
 
-                    <p className="font-mono text-lg md:text-xl text-text-dim mb-8 max-w-2xl mx-auto">
-                        Cloud & DevOps Engineer
-                        <span className="text-neon-purple mx-2">|</span>
-                        SELECT GAME MODE
+                    <p className="font-mono text-lg md:text-2xl text-text-dim mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Cloud, DevOps & IT Engineer
+                        <span className="block mt-2 text-sm text-neon-blue opacity-80 tracking-[0.2em] font-cyber uppercase">
+                            Architecting Scalable Solutions
+                        </span>
                     </p>
 
-                    {/* Quick Stats Strip - Static on low motion */}
-                    <div className="w-full max-w-4xl mb-12 overflow-hidden mask-linear-fade relative">
-                        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-cyber-black to-transparent z-10" />
-                        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-cyber-black to-transparent z-10" />
-
-                        <div
-                            className={`flex gap-6 w-max ${!lowMotion ? "animate-marquee" : "flex-wrap justify-center overflow-auto"}`}
+                    <div className="flex flex-col sm:flex-row gap-6 items-center justify-center">
+                        <a
+                            href="#about"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                playClick();
+                                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            onMouseEnter={playHover}
+                            className="group relative inline-flex items-center gap-3 px-10 py-4 bg-white/5 border border-white/10 rounded-full text-text-main font-cyber tracking-widest hover:bg-neon-blue hover:text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,210,255,0.3)] hover:border-neon-blue"
                         >
-                            {[...Array(2)].map((_, i) => (
-                                <div key={i} className="flex gap-6">
-                                    {[
-                                        "⭐ 4+ Years IT & Cloud Experience",
-                                        "☁️ AWS, Terraform, CI/CD Pipelines",
-                                        "📡 Kubernetes | Docker | Linux",
-                                        "🔐 Cybersecurity Background"
-                                    ].map((stat, idx) => (
-                                        <div key={idx} className="px-6 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm font-mono text-text-dim shadow-sm whitespace-nowrap">
-                                            {stat}
-                                        </div>
-                                    ))}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                            EXPLORE WORK
+                        </a>
 
-                    {/* Resume Download Button */}
-
-
-                    {/* Game Map Navigation */}
-                    <div className="w-full flex justify-center">
-                        <LevelMap />
-                    </div>
-
-                    {/* Resume Download Button */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.8 }}
-                        className="mt-12"
-                    >
                         <a
                             href="/Varun-cloud engineer-Resume.docx"
                             download="Varun_Reddy_Shyamala_Resume.docx"
                             onClick={playClick}
                             onMouseEnter={playHover}
-                            className="group relative inline-flex items-center gap-3 px-8 py-3 bg-neon-blue/10 border border-neon-blue/50 rounded-full text-neon-blue font-cyber tracking-wide hover:bg-neon-blue hover:text-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,243,255,0.4)]"
+                            className="group relative inline-flex items-center gap-3 px-10 py-4 bg-neon-blue/10 border border-neon-blue/30 rounded-full text-neon-blue font-cyber tracking-widest hover:bg-neon-blue/20 transition-all duration-300"
                         >
                             <FileDown className="w-5 h-5 group-hover:animate-bounce" />
-                            DOWNLOAD RESUME
-                            <div className="absolute inset-0 rounded-full bg-neon-blue/20 blur-md -z-10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            RESUME
                         </a>
-                    </motion.div>
+                    </div>
                 </motion.div>
             </div>
 
-
+            {/* Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 text-text-dim animate-bounce"
+            >
+                <ChevronDown size={32} />
+            </motion.div>
         </section>
     );
 }
@@ -138,7 +101,7 @@ function FloatingIcon({ icon: Icon, delay, x, y, lowMotion }: { icon: any, delay
                 left: `${x}%`,
                 top: `${y}%`,
                 animationDelay: `${delay}s`,
-                opacity: lowMotion ? 0.05 : undefined // Static opacity if lowMotion
+                opacity: lowMotion ? 0.05 : undefined
             }}
         >
             <Icon size={64} />

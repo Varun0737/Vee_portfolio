@@ -23,11 +23,11 @@
   --text-secondary: #9ca3af;
   --border-color: rgba(255, 255, 255, 0.1);
 
-  --neon-blue: #00f3ff;
-  --neon-purple: #bd00ff;
-  --neon-green: #00ff9d;
+  --neon-blue: #00d2ff;
+  --neon-purple: #a855f7;
+  --neon-green: #22c55e;
 
-  --glass-bg: rgba(26, 26, 26, 0.5);
+  --glass-bg: rgba(15, 15, 15, 0.7);
 }
 
 body {
@@ -45,11 +45,11 @@ body {
   }
 
   .text-glow {
-    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue);
   }
 
   .neon-border {
-    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
   }
 }
 
@@ -113,21 +113,21 @@ body {
 }
 
 .animate-scan {
-  animation: scan-beam 8s linear infinite;
+  animation: scan-beam 12s linear infinite;
   will-change: transform, opacity;
 }
 
 .animate-grid-drift {
-  animation: grid-drift 60s linear infinite;
+  animation: grid-drift 80s linear infinite;
   will-change: background-position;
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 30s linear infinite;
   will-change: transform;
 }
 
 .animate-float {
-  animation: float 5s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
   will-change: transform, opacity;
 }
